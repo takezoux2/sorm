@@ -62,3 +62,11 @@ lazy val root = project.in(file(".")).settings(commonSettings:_*).
     }
   )
 
+lazy val macroTest = project.in(file("sorm-macro-test")).settings(commonSettings:_*).
+  settings(
+    name := "sorm-macro-test",
+    libraryDependencies ++= Seq(
+      "com.h2database" % "h2" % "1.3.168" % "test",
+      "org.scalatest" %% "scalatest" % "2.2.3" % "test"
+    )
+  ).dependsOn(root)
